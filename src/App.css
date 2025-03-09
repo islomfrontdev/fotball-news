@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light;
+}
+:root {
+  --primary: #141c4d;
+}
+
+.navbar {
+  a {
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+  }
+}
