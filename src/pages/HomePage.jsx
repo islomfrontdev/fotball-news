@@ -37,10 +37,10 @@ function HomePage() {
     getMatchesData(day);
   }, [day, leagueId]);
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-5 xl:px-0">
       <section>
         <h2 className="text-2xl font-bold">O'yinlar</h2>
-        <div className="flex items-center gap-2 mt-5">
+        <div className="flex items-center gap-2 mt-5 flex-col md:flex-row">
           <FormControl size="small" style={{ width: 300 }}>
             <InputLabel id="demo-simple-select-label" sx={{ width: "100%" }}>
               Liga
@@ -80,7 +80,7 @@ function HomePage() {
             </Select>
           </FormControl>
         </div>
-        <div className="grid grid-cols-4 gap-5 bg-blue-100 mt-5 p-5 rounded-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 bg-blue-100 mt-5 p-5 rounded-lg">
           {matchesData.data && !loading
             ? matchesData.data.map((match) => (
                 <div

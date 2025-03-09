@@ -18,7 +18,7 @@ function SingleNews() {
   }, [id]);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-5 xl:px-0">
       <Breadcrumbs>
         <NavLink
           className="text-blue-500 hover:text-blue-600 hover:underline"
@@ -31,7 +31,7 @@ function SingleNews() {
 
       {newsStore && (
         <div className="mt-10">
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="col-span-1">
               <img
                 className="w-full object-contain"
@@ -39,7 +39,7 @@ function SingleNews() {
                 alt={newsStore.title}
               />
             </div>
-            <div className="col-span-2">
+            <div className="col-span-1 md:col-span-2">
               <Typography variant="h5">{newsStore.title}</Typography>
               <hr className="my-5" />
               <Typography
@@ -61,9 +61,9 @@ function SingleNews() {
               onClick={() => dispatch(setNewsStore(item))}
               className="group hover:scale-102 transition-all duration-300"
             >
-              <div className="mt-5 flex items-center gap-5 bg-blue-100 p-2 rounded-md shadow group-hover:scale-101 transition-all duration-300">
+              <div className="mt-5 flex flex-col md:flex-row items-center gap-5 bg-blue-100 p-2 rounded-md shadow group-hover:scale-101 transition-all duration-300">
                 <img
-                  className="w-20 h-20 object-contain"
+                  className="w-full md:w-20 h-auto md:h-20 object-contain"
                   src={item.poster.path}
                   alt={item.title}
                 />

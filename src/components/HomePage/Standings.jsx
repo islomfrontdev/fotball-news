@@ -58,11 +58,17 @@ function Standings() {
         </FormControl>
       </div>
 
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer component={Paper} className="mt-5 relative">
+        <Table
+          sx={{ minWidth: 650 }}
+          aria-label="simple table"
+          className="overflow-x-auto w-full"
+        >
           <TableHead>
             <TableRow>
-              <TableCell>Jamoa</TableCell>
+              <TableCell className="sticky left-0 bg-white xl:bg-transparent">
+                Jamoa
+              </TableCell>
               <TableCell>Tur</TableCell>
               <TableCell>Ochko</TableCell>
               <TableCell>G'alaba</TableCell>
@@ -85,7 +91,11 @@ function Standings() {
                     transition: "background-color 0.2s ease",
                   }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    className="sticky left-0 bg-white xl:bg-transparent"
+                  >
                     <div className="flex items-center gap-1">
                       <span className="w-5">{team.position}</span>
                       <img
