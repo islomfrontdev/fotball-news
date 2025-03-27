@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import HomeNews from "../components/HomePage/HomeNews";
 import Standings from "../components/HomePage/Standings";
+import { DateTime } from "luxon";
 function HomePage() {
   const [day, setDay] = useState("today");
   const [matchesData, setMatchesData] = useState([]);
@@ -75,7 +76,7 @@ function HomePage() {
               onChange={(e) => setDay(e.target.value)}
             >
               <MenuItem value="today">Bugungi o'yinlar</MenuItem>
-              <MenuItem value="yesterday">Kecha o'yinlar</MenuItem>
+              <MenuItem value="yesterday">Kechagi o'yinlar</MenuItem>
               <MenuItem value="tomorrow">Ertangi o'yinlar</MenuItem>
             </Select>
           </FormControl>
@@ -118,6 +119,21 @@ function HomePage() {
                         {match.current_minute} min
                       </p>
                     )}
+                    <p className="text-xs font-bold">
+                      {new Date(match.start_at * 1000).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: false,
+                      })}{" "}
+                      {"| "}
+                      {new Date(match.start_at * 1000).toLocaleDateString(
+                        "en-GB",
+                        {
+                          day: "2-digit",
+                          month: "short",
+                        }
+                      )}
+                    </p>
                   </div>
                   <div className="flex items-center gap-2">
                     <img
